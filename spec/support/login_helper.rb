@@ -32,6 +32,7 @@ module LoginHelper
     click_link('Sign in')
     expect(current_path).to eq('/signin')
     select "Mindy", :from => "user[id]"
+    fill_in("user[password]", :with => "password")
     click_button('Sign In')
     expect(current_path).to eq('/users/1')
     expect(page).to have_content("Mindy")
@@ -72,6 +73,7 @@ module LoginHelper
     click_link('Sign in')
     expect(current_path).to eq('/signin')
     select "Walt Disney", :from => "user[id]"
+    fill_in("user[password]", :with => "password")
     click_button('Sign In')
     expect(current_path).to eq('/users/2')
     expect(page).to have_content("Walt Disney")
